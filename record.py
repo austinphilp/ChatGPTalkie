@@ -1,16 +1,16 @@
 import asyncio
-import pyaudio
 import math
 import struct
 import time
 import os
 
-from sounds import play_sound_from_file
-from utils import silence
-
 from amazon_transcribe.client import TranscribeStreamingClient
 from amazon_transcribe.handlers import TranscriptResultStreamHandler
 from amazon_transcribe.model import TranscriptEvent
+import pyaudio
+
+from sounds import play_sound_from_file
+from utils import silence
 
 SPEAKING_THRESHOLD = 50
 PERCUSSIVE_RATIO_THRESHOLD = 800
