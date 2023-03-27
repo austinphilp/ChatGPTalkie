@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "openai-voice-chat"
+version = "0.1.0"
+description = "Uses a combination of AWS transcription and TTS tools and OpenAIs ChatGPT to allow a user to converse with chatGPT vocally"
+authors = ["Austin Philp <austinphilp@gmail.com>"]
+readme = "README.md"
+packages = [{include = "openai_voice_chat"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+openai = "^0.27.2"
+pydub = "^0.25.1"
+boto3 = "^1.26.98"
+amazon-transcribe = "^0.6.1"
+colorama = "^0.4.6"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+flake8 = "^6.0.0"
+pyright = "^1.1.300"
+neovim = "^0.3.1"
+jedi = "<0.18.0"  # https://github.com/ipython/ipython/issues/12740
+pre-commit = "2.13.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line_length = 130
+exclude = '''
+/(
+    \.eggs
+  | \.git
+)/
+'''
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+line_length = 130
+skip = ["scripts"]
+known_first_party = ["tests"]
